@@ -11,4 +11,4 @@ def tasks(request):
     return HttpResponse("Tasks Home Page")
 
 def hello(resquest, name):
-    return HttpResponse("Hello, %s", name)
+    return HttpResponse("Hello, %s" % name)
