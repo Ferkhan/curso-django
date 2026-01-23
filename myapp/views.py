@@ -4,12 +4,17 @@ from django.shortcuts import render
 from .models import Project, Task
 
 def home(request):
-    return render(request, 'index.html')
+    title = "Primera app con Django"
+    return render(request, 'index.html', {
+        'title': title
+    })
     # return HttpResponse("Welcome to the Home Page")
 
 def projects(request):
     projects = list(Project.objects.values())
-    return render(request, 'projects.html')
+    return render(request, 'projects.html', {
+        'projects': projects
+    })
     # return JsonResponse(projects, safe=False)
     # return HttpResponse("Project Home Page")
 

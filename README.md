@@ -85,3 +85,13 @@ from .models import Project, Task
 # Register your models here.
 admin.site.register(Project)
 ```
+
+## Templates
+
+```cmd
+{{ variable enviada por views }}
+
+{% for item in list %}
+{{ item.name }}
+{% endfor %}
+```
