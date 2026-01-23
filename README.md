@@ -22,6 +22,31 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
+## Urls
+
+```py
+urlpatterns = [
+    path('', views.home),
+    path('hello/<str:name>', views.hello),
+    path('projects/', views.projects),
+]
+```
+
+## Views
+
+```py
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import get_object_or_404
+
+def home(request):
+    return HttpResponse("Welcome to the Home Page")
+
+def tasks(request, id):
+    task = get_object_or_404(Task, id=id)
+    # task = Task.objects.get(id=id)
+    return HttpResponse("Task to complete: %s" % task.title)
+```
+
 ## CRUD desde shell de manage.py
 
 `py manage.py shell`
@@ -47,4 +72,16 @@ p.task_set.get(id=1)
 Project.objects.filter(name__startswith="aplicacion")
 p = Project.objects
 p.filter(name__starswith="aplicacion")
+```
+
+## Panel Admin
+
+`py manage.py createsuperuser`
+
+```py
+from django.contrib import admin
+from .models import Project, Task
+
+# Register your models here.
+admin.site.register(Project)
 ```
