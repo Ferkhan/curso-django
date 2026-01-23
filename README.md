@@ -95,3 +95,11 @@ admin.site.register(Project)
 {{ item.name }}
 {% endfor %}
 ```
+
+## Extends
+
+```cmd
+{% extends 'url/html' %}
+{% block content %}
+{% endblock %}
+```
